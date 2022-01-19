@@ -13,15 +13,27 @@ Vagrant.configure("2") do |config|
   config.vm.define "switch" do |switch|
     switch.vm.box = "ubuntu/bionic64"
     switch.vm.hostname = "switch"
-    switch.vm.provision "shell", path: "switch.sh"
-    switch.vm.provider "virtualbox"
+    switch.vm.provision "shell", path: "switch.sh" #??
+    switch.vm.provider "virtualbox" #?
   end
+
+
+  (1..{{ PcNumber }}).each do |i|
+    config.vm.define "pc-#{i}" do |pc|
+      pc.vm.box = "ubuntu/bionic64"
+      pc.vm.hostname = "pc-#{i}"
+      pc.vm.provision "shell", path: "pc.sh" #??
+      switch.vm.provider "virtualbox" #?
+    end
+  end
+
+
 
 
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "base"
+  # config.vm.box = "base"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
