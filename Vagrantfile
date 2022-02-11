@@ -6,23 +6,20 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure("2") do |config|
-  # The most common configuration options are documented and commented below.
-  # For a complete reference, please see the online documentation at
-  # https://docs.vagrantup.com.
-
+  
   config.vm.define "switch" do |switch|
     switch.vm.box = "ubuntu/bionic64"
     switch.vm.hostname = "switch"
-    switch.vm.provision "shell", path: "switch.sh" #??
+    switch.vm.provision "shell", path: "switch.sh" 
     switch.vm.provider "virtualbox" #?
   end
 
 
   (1..{{ PcNumber }}).each do |i|
-    config.vm.define "pc-#{i}" do |pc|
+    config.vm.define "pc_#{i}" do |pc|
       pc.vm.box = "ubuntu/bionic64"
-      pc.vm.hostname = "pc-#{i}"
-      pc.vm.provision "shell", path: "pc.sh" #??
+      pc.vm.hostname = "pc_#{i}"
+      pc.vm.provision "shell", path: "pc_#{i}.sh"
       switch.vm.provider "virtualbox" #?
     end
   end
@@ -30,10 +27,6 @@ Vagrant.configure("2") do |config|
 
 
 
-
-  # Every Vagrant development environment requires a box. You can search for
-  # boxes at https://vagrantcloud.com/search.
-  # config.vm.box = "base"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -77,15 +70,5 @@ Vagrant.configure("2") do |config|
   #   # Customize the amount of memory on the VM:
   #   vb.memory = "1024"
   # end
-  #
-  # View the documentation for the provider you are using for more
-  # information on available options.
 
-  # Enable provisioning with a shell script. Additional provisioners such as
-  # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
-  # documentation for more information about their specific syntax and use.
-  # config.vm.provision "shell", inline: <<-SHELL
-  #   apt-get update
-  #   apt-get install -y apache2
-  # SHELL
 end
