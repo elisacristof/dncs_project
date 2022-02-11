@@ -1,1 +1,4 @@
-# dncs_project
+# Automating the deployment of network setups using Vagrant
+
+Il progetto consiste nello sviluppo di un software che consenta di costruire una rete virtuale di PC in maniera automatizzata utilizzando Vagrant.
+
