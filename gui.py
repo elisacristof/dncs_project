@@ -13,6 +13,7 @@ def decrease():
 
 def start():
     PcN = int(lbl_value["text"])
+    
     print("You chose to create", PcN, "VMs") 
     btn_confirm["state"] = "disabled"
     win.destroy()
@@ -28,15 +29,17 @@ def start():
         file_n.write("sudo ip link set dev enp0s8 up \n")
         file_n.close()
         
-        file = open("switch1.sh", 'a')
+        file = open("switch.sh", 'a')
         file.write("sudo ovs-vsctl add-port switch enp0s%d \n" % eight)
         file.write("sudo ip link set dev enp0s%d up \n\n" % eight)
         file.close()
         eight += 1
         
+    print("Updating the Vagrantfile...")
+    ## need to substitute 'PcNumber' in Vagrantfile
+    ## how??
 
-     
-    
+
 win = tk.Tk()
 win.title("Choose the VMs' number")
 win.geometry("330x200")
