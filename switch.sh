@@ -6,4 +6,3 @@ apt-get install -y openvswitch-common openvswitch-switch apt-transport-https ca-
 
 sudo ovs-vsctl add-br switch
 
-
