@@ -16,7 +16,7 @@ Vagrant.configure("2") do |config|
 
 # The following line will be inserted by the gui.py file
   
-   config.vm.define "pc_#{i}" do |pc|
+    config.vm.define "pc_#{i}" do |pc|
       pc.vm.box = "ubuntu/bionic64"
       pc.vm.hostname = "pc_#{i}"
       pc.vm.provision "shell", path: "pc_#{i}.sh"
