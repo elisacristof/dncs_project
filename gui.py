@@ -20,24 +20,34 @@ def start():
     
     print("Creating the VMs' scripts...")
     contenuto = "export DEBIAN_FRONTEND=noninteractive \n\n"
-    eight = 8
 
     for n in range(1, PcN+1):
-        file_n = open("pc_%d.sh" % n, 'w')
+        file_n = open("pc%d.sh" % n, 'w')
         file_n.write(contenuto)
-        file_n.write("sudo ip addr add 192.168.0.%d dev enp0s8 \n" % n)
+        file_n.write("sudo ip addr add 192.168.0.%d/28 dev enp0s8 \n" % n)
         file_n.write("sudo ip link set dev enp0s8 up \n")
         file_n.close()
         
         file = open("switch.sh", 'a')
-        file.write("sudo ovs-vsctl add-port switch enp0s%d \n" % eight)
-        file.write("sudo ip link set dev enp0s%d up \n\n" % eight)
+        file.write("sudo ip tuntap add mode tap pc%d \n" % n)
+        file.write("sudo ip link set pc%d up \n" % n)
+        file.write("sudo ovs-vsctl add-port switch pc%d \n\n" % n)  
         file.close()
-        eight += 1
+        
         
     print("Updating the Vagrantfile...")
-    ## need to substitute 'PcNumber' in Vagrantfile
-    ## how??
+    f = open("Vagrantfile", "r")
+    contents = f.readlines()
+    f.close()
+    
+    contents.insert(28, "  (1..%d).each do |i|" % PcN) 
+
+    f = open("Vagrantfile", "w")
+    contents = "".join(contents)
+    f.write(contents)
+    f.close()
+
+    print("Now everything is ready!")
 
 
 win = tk.Tk()

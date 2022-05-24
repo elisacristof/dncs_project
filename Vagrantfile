@@ -16,19 +16,26 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--nicpromisc5", "allow-all"]
     vb.cpus = 1
   end
-  config.vm.define "switch" do |switch|
-    switch.vm.box = "ubuntu/bionic64"
-    switch.vm.hostname = "switch"
-    switch.vm.provision "shell", path: "switch.sh" 
-    switch.vm.provider "virtualbox" 
-  end
-# The following line will be inserted by the gui.py file
-  
-    config.vm.define "pc_#{i}" do |pc|
+   config.vm.define "switch" do |switch|
+     switch.vm.box = "ubuntu/bionic64"
+     switch.vm.hostname = "switch"
+     switch.vm.network "private_network", virtualbox__intnet: true, auto_config: false
+     switch.vm.provision "shell", path: "switch.sh"
+     switch.vm.provider "virtualbox" do |v|
+       v.name = "switch"
+     end
+   end 
+# The following line is inserted by the gui.py file
+
+    config.vm.define "pc#{i}" do |pc|
       pc.vm.box = "ubuntu/bionic64"
-      pc.vm.hostname = "pc_#{i}"
-      pc.vm.provision "shell", path: "pc_#{i}.sh"
-      pc.vm.provider "virtualbox" 
+      pc.vm.hostname = "pc#{i}"
+      pc.vm.network "private_network", virtualbox__intnet: true, auto_config: false 
+      pc.vm.provision "shell", path: "pc#{i}.sh"
+      pc.vm.provider "virtualbox" do |v|
+        v.name = "pc#{i}"
+      end
     end
   end
+
 end
