@@ -20,6 +20,7 @@ def start():
     
     print("Creating the VMs' scripts...")
     contenuto = "export DEBIAN_FRONTEND=noninteractive \n\n"
+    num = 8
 
     for n in range(1, PcN+1):
         file_n = open("pc%d.sh" % n, 'w')
@@ -28,12 +29,11 @@ def start():
         file_n.write("sudo ip link set dev enp0s8 up \n")
         file_n.close()
         
-        file = open("switch.sh", 'a')
-        file.write("sudo ip tuntap add mode tap pc%d \n" % n)
-        file.write("sudo ip link set pc%d up \n" % n)
-        file.write("sudo ovs-vsctl add-port switch pc%d \n\n" % n)  
+        file = open("router.sh", 'a')
+        file.write("sudo ip addr add 192.168.1.%d/28 dev enp0s8 \n" % n)
+        file.write("sudo ip link set dev enp0s%d up \n\n" % num)  
         file.close()
-        
+        num += 1
         
     print("Updating the Vagrantfile...")
     f = open("Vagrantfile", "r")
