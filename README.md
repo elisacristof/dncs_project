@@ -16,7 +16,10 @@ To implement my software I used Tkinter, a Python GUI (Graphical User Interface)
 
 ## IMPLEMENTATIONS
 ### GUI configuration
-Firstly, I designed the phisical interface as a simple window with two buttons, `+` and `-` (for the user to increase or decrease the PCs' number), and a `Okay` button to confirm the number chosen and start generating and updating the *shell scripts*.    
+Firstly, I designed the phisical interface as a simple window with two buttons, `+` and `-` (for the user to increase or decrease the PCs' number), and a `Okay` button to confirm the number chosen and automatically start generating and updating the scripts for Vagrant. 
+I chose to create a non resizable small window with a light blue background and green and yellow buttons.  
+
+
 
 ### Commands 
 Here there is a list of the commands used in the *shell scripts* (all preceded by `sudo` because every command has to be executed by the superuser):
