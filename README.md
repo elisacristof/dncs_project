@@ -9,6 +9,11 @@ To implement my software I used Tkinter, a Python GUI (Graphical User Interface)
 
 ![window](https://user-images.githubusercontent.com/89995099/170240351-e746dead-76fe-4ca5-9e28-224fdc71b762.png)
 
+### USER REQUIREMENTS
+- VirtualBox 
+- Vagrant
+- 
+
 ## IMPLEMENTATIONS
 ### Configuring the GUI
 
