@@ -9,15 +9,16 @@ To implement my software I used Tkinter, a Python GUI (Graphical User Interface)
 
 ![window](https://user-images.githubusercontent.com/89995099/170240351-e746dead-76fe-4ca5-9e28-224fdc71b762.png)
 
-### User requirements
+### User software requirements
 - VirtualBox 
 - Vagrant
 - 
 
 ## IMPLEMENTATIONS
-### Configuring the GUI
+### GUI configuration
+Firstly, I designed the phisical interface as a simple window with two buttons, `+` and `-` (for the user to increase or decrease the PCs' number), and a `Okay` button to confirm the number chosen and start generating and updating the *shell scripts*.    
 
 ### Commands 
-Here there is a list of the commands used in the *.sh scripts* (all preceded by `sudo` because every command has to be executed by the superuser):
+Here there is a list of the commands used in the *shell scripts* (all preceded by `sudo` because every command has to be executed by the superuser):
 - [**IP FORWARDING**] I enabled the IPv4 forwarding in the router with `sysctl -w net.ipv4.ip_forward=1`;
 - [**IP**] I assigned an IP address to each interface, with the command `ip addr add [ip_address/netmask] dev [interface]` and then I activated that interface with `ip link set dev [interface] up`;
