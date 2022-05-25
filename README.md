@@ -9,7 +9,7 @@ To implement my software I used Tkinter, a Python GUI (Graphical User Interface)
 
 ![window](https://user-images.githubusercontent.com/89995099/170240351-e746dead-76fe-4ca5-9e28-224fdc71b762.png)
 
-### USER REQUIREMENTS
+### User requirements
 - VirtualBox 
 - Vagrant
 - 
@@ -18,6 +18,6 @@ To implement my software I used Tkinter, a Python GUI (Graphical User Interface)
 ### Configuring the GUI
 
 ### Commands 
-Here there is a list of the commands I used (all preceded by `sudo` because every command has to be executed by the superuser):
+Here there is a list of the commands used in the *.sh scripts* (all preceded by `sudo` because every command has to be executed by the superuser):
 - [**IP FORWARDING**] I enabled the IPv4 forwarding in the router with `sysctl -w net.ipv4.ip_forward=1`;
 - [**IP**] I assigned an IP address to each interface, with the command `ip addr add [ip_address/netmask] dev [interface]` and then I activated that interface with `ip link set dev [interface] up`;
