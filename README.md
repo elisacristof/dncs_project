@@ -16,12 +16,15 @@ To implement my software I used Tkinter, a Python GUI (Graphical User Interface)
 
 ## IMPLEMENTATIONS
 ### GUI configuration
-Firstly, I designed the phisical interface as a simple window with two buttons, `+` and `-` (for the user to increase or decrease the PCs' number), and a `Okay` button to confirm the number chosen and automatically start generating and updating the scripts for Vagrant. 
-I chose to create a non resizable small window with a light blue background and green and yellow buttons.  
+Firstly, I designed the phisical interface as a simple window with two buttons, `+` and `-` (for the user to increase or decrease the PCs' number), and a `Okay` button to confirm the number chosen and automatically start generating and updating the scripts for Vagrant.
+#### Window 
+I chose to create a non resizable (`win.resizable(False,False)`) small (`win.geometry("330x200")`) window with a colored background (`win.configure(background="lightblue")`). 
+#### Buttons
+In order to create the buttons I used the widget class Button, available in the tkinter package with the command `tk.Button()` (I imported tkinter as tk). To each button I assigned the corresponding master (the same for all of them: the window), texts, color (green and yellow) and functions (`increase`, `decrease` and `start`).
+To specify the location of a widget I called the geometry manager `.grid()` and passed the row and column indices.
 
 
-
-### Commands 
+### Scipts commands 
 Here there is a list of the commands used in the *shell scripts* (all preceded by `sudo` because every command has to be executed by the superuser):
 - [**IP FORWARDING**] I enabled the IPv4 forwarding in the router with `sysctl -w net.ipv4.ip_forward=1`;
 - [**IP**] I assigned an IP address to each interface, with the command `ip addr add [ip_address/netmask] dev [interface]` and then I activated that interface with `ip link set dev [interface] up`;
