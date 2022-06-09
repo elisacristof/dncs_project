@@ -21,7 +21,7 @@ Firstly, I designed the phisical interface as a simple window with two buttons, 
 I chose to create a non resizable (`win.resizable(False,False)`) small (`win.geometry("330x200")`) window with a colored background (`win.configure(background="lightblue")`). 
 #### Buttons
 In order to create the buttons I used the widget class Button, available in the tkinter package with the command `tk.Button()` (I imported tkinter as tk). To each button I assigned the corresponding master (the same for all of them: the window), texts, color (green and yellow) and functions (`increase`, `decrease` and `start`).
-To specify the location of a widget I called the geometry manager `.grid()` and passed the row and column indices.
+To specify the location of a widget I called the geometry manager `.grid()` and passed the row and column indices. 
 
 
 ### Scipts commands 
