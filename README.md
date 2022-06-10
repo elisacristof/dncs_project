@@ -23,7 +23,7 @@ I chose to create a non resizable (`win.resizable(False,False)`) small (`win.geo
 In order to create the buttons I used the widget class Button, available in the tkinter package with the command `tk.Button()` (I imported tkinter as tk). To each button I assigned the corresponding master (the same for all of them: the window), texts, color (green and yellow) and functions (`increase`, `decrease` and `start`).
 To specify the location of each button I called the geometry manager `.grid()` and passed the row and column indices.  
 #### General features
-To make them more visible and pleasing to the eye, I decided to increment the font size to 20 of both the buttons, `+` and `-`, and the label. For the `Okay` button I chose a smaller size: 12. To do so I used the command `widgetname.['font'] = font.Font(size=%d)` (I imported tkinter.font as font).  
+To make them more visible and pleasing to the eye, I decided to increment the font size to 20 of both the buttons, `+` and `-`, and the label. For the `Okay` button I chose a smaller size: 12. To do so I used the command `*widgetname*.['font'] = font.Font(size=*fontsize*)` (I imported tkinter.font as font).  
 
 ### Scipts commands 
 Here there is a list of the commands used in the *shell scripts* (all preceded by `sudo` because every command has to be executed by the superuser):
