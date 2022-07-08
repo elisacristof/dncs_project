@@ -7,7 +7,7 @@ I have designed the software so that the user can choose the number of PCs (from
 
 To implement my software I used Tkinter, a Python GUI (Graphical User Interface) package, and created a simple window with buttons where the user choose the VMs' number.
 
-![window](https://user-images.githubusercontent.com/89995099/170240351-e746dead-76fe-4ca5-9e28-224fdc71b762.png)
+![image](https://user-images.githubusercontent.com/89995099/178014871-dcc48f48-5cf8-472d-ad01-0ee27f511a33.png)
 
 ### User software requirements
 - VirtualBox 
