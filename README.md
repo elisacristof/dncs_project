@@ -1,18 +1,18 @@
 # "AUTOMATING THE DEPLOYMENT OF NETWORK SETUPS"
-The project is to develop software to build a virtual network of PCs in an automated way using Vagrant.
+The project consists of the development of a software which builds a virtual network of PCs in an automated way using Vagrant.
 ## DESIGN
-I have designed the software so that the user can choose the number of PCs (from 1 to 6) in a star configuration, with a central router connecting the PCs together, and automatically generate Vagrant scripts, which will activate the Virtual Machines and the router and connect them properly after launching the `vagrant up` command.
+I have designed the software so that the user can choose the number of PCs (from 1 to 6) in a star configuration, with a central router connecting the PCs together, and automatically generate the Vagrant scripts, which will activate the Virtual Machines and the router and connect them properly after launching the `vagrant up` command. If desired, it is left to the user to implement the routing.
 
 ![star](https://user-images.githubusercontent.com/89995099/170241546-8de5decb-9faa-49d7-8b0e-7799285b0b9f.jpg) *(example of configuration)*
 
-To implement my software I used Tkinter, a Python GUI (Graphical User Interface) package, and created a simple window with buttons where the user choose the VMs' number.
+To implement my software I used Tkinter, a Python GUI (Graphical User Interface) package, and created a simple window with buttons where the user choose the VMs' number. 
 
 ![image](https://user-images.githubusercontent.com/89995099/178014871-dcc48f48-5cf8-472d-ad01-0ee27f511a33.png)
 
 ### User software requirements
 - VirtualBox 
 - Vagrant
-- 
+- BASH emulation used to run Git from the command line
 
 ## IMPLEMENTATIONS
 ### GUI configuration
