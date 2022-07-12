@@ -12,7 +12,7 @@ To implement my software I used Tkinter, a Python GUI (Graphical User Interface)
 ### User software requirements
 - VirtualBox 
 - Vagrant
-- any BASH emulation used to run Git from the command line
+- any Bash emulation to run Git from the command line
 
 ## IMPLEMENTATIONS
 ### GUI configuration
@@ -22,8 +22,8 @@ I chose to create a non resizable (with command `win.resizable(False,False)`) sm
 #### Buttons
 In order to create the buttons I used the widget class Button, available in the tkinter package with the command `tk.Button()` (I imported tkinter as tk). To each button I assigned the corresponding master (the same for all of them: the window), texts, color (green and yellow) and relative functions (`increase`, `decrease` and `start`). 
 #### Functions
-- `increase`: associated with the "plus" button, it increases the number of PCs by one when the user clicks on the button (the number cannot exceed 6);
-- `decrease`: associated with the "minus" button, it decreases the number of PCs by one when the user clicks on the button (obviously the number cannot go below 1);
+- `increase`: associated with the *"plus" button*, it increases the number of PCs by one when the user clicks on the button (the number cannot exceed 6);
+- `decrease`: associated with the *"minus" button*, it decreases the number of PCs by one when the user clicks on the button (obviously the number cannot go below 1);
 - `start`: associated with the "okay" button, this function reads the chosen PCs' number and initiates the process: it generates all the VMs scripts and updates the router's file and the Vagrantfile. 
 #### General features
 To make them more visible and pleasing to the eye, I decided to increment the font size to 20 of both the buttons, `+` and `-`, and the label. For the `Okay` button I chose a smaller size: 12. To do so I used the Font class constructor `*widgetname*['font'] = font.Font(size=*fontsize*)` (I imported tkinter.font module as font). 
@@ -33,3 +33,6 @@ To specify the location of each button and label I called the geometry manager `
 Here there is a list of the commands used in the *shell scripts* (all preceded by `sudo` because every command has to be executed by the superuser):
 - [**IP FORWARDING**] I enabled the IPv4 forwarding in the router with `sysctl -w net.ipv4.ip_forward=1`;
 - [**IP**] I assigned an IP address to each interface, with the command `ip addr add [ip_address/netmask] dev [interface]` and then I activated that interface with `ip link set dev [interface] up`;
+
+## EXECUTION
+From the Bash software, the user must move to the corresponding folder and run the python file `gui.py`. 
