@@ -35,4 +35,4 @@ Here there is a list of the commands used in the *shell scripts* (all preceded b
 - [**IP**] I assigned an IP address to each interface, with the command `ip addr add [ip_address/netmask] dev [interface]` and then I activated that interface with `ip link set dev [interface] up`;
 
 ## EXECUTION
-From the Bash software, the user must move to the corresponding folder and run the python file `gui.py`. 
+From the Bash software, the user must move to the corresponding folder and run the python file `gui.py`. The window will appear, from which the user chooses the desired pc number and confirms it
