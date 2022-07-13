@@ -31,7 +31,7 @@ To specify the location of each button and label I called the geometry manager `
 ### Scripts commands 
 Here there is a list of the commands used in the *shell scripts* (all preceded by `sudo` because every command has to be executed by the superuser):
 - [**IP FORWARDING**] I enabled the IPv4 forwarding in the router with `sysctl -w net.ipv4.ip_forward=1`;
-- [**IP**] I activated that interface with `ip link set dev [interface] up` and then I assigned an IP address to each interface, with the command `ip addr add [ip_address/netmask] dev [interface]`;
+- [**IP**] I assigned an IP address to each interface, with the command `ip addr add [ip_address/netmask] dev [interface]` and then I activated that interface with `ip link set dev [interface] up`;
 
 ## EXECUTION
 The user needs to download this repository to their PC. 
