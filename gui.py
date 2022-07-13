@@ -27,8 +27,8 @@ def start():
     for n in range(1, PcN+1):
         file = open("pc%d.sh" % n, 'w')
         file.write(contenuto)
-        file.write("sudo ip addr add 192.168.0.%d/28 dev enp0s%d \n" % (n, num))
-        file.write("sudo ip link set dev enp0s%d up \n\n" % num)
+        file.write("sudo ip addr add 192.168.0.%d/28 dev enp0s8 \n" % n)
+        file.write("sudo ip link set dev enp0s8 up \n")
         file.close()
         
         file = open("router.sh", 'a')
