@@ -26,13 +26,12 @@ In order to create the buttons I used the widget class Button, available in the 
 - `decrease`: associated with the *"minus" button*, it decreases the number of PCs by one when the user clicks on the button (obviously the number cannot go below 1);
 - `start`: associated with the "okay" button, this function reads the chosen PCs' number and initiates the process: it generates all the VMs scripts and updates the router's file and the Vagrantfile. 
 #### General features
-To make them more visible and pleasing to the eye, I decided to increment the font size to 20 of both the buttons, `+` and `-`, and the label. For the `Okay` button I chose a smaller size: 12. To do so I used the Font class constructor `*widgetname*['font'] = font.Font(size=*fontsize*)` (I imported tkinter.font module as font). 
-
+To make them more visible and pleasing to the eye, I decided to increment the font size to 20 of both the buttons, `+` and `-`, and the label. For the `Okay` button I chose a smaller size: 12. To do so I used the Font class constructor `*widgetname*['font'] = font.Font(size=*fontsize*)` (I imported tkinter.font module as font).
 To specify the location of each button and label I called the geometry manager `.grid()` and passed the row and column indices.   
 ### Scripts commands 
 Here there is a list of the commands used in the *shell scripts* (all preceded by `sudo` because every command has to be executed by the superuser):
 - [**IP FORWARDING**] I enabled the IPv4 forwarding in the router with `sysctl -w net.ipv4.ip_forward=1`;
-- [**IP**] I assigned an IP address to each interface, with the command `ip addr add [ip_address/netmask] dev [interface]` and then I activated that interface with `ip link set dev [interface] up`;
+- [**IP**] I activated that interface with `ip link set dev [interface] up` and then I assigned an IP address to each interface, with the command `ip addr add [ip_address/netmask] dev [interface]`;
 
 ## EXECUTION
-From the Bash software, the user must move to the corresponding folder and run the python file `gui.py`. The window will appear, from which the user chooses the desired pc number and confirms it
+From the Bash software, the user must move to the corresponding folder and run the python file `gui.py`. The window will appear, from which the user can choose the desired pc number and confirm it. Then all the scripts are created and/or updated with the relative command lines.
