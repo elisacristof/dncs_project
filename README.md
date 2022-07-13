@@ -36,3 +36,4 @@ Here there is a list of the commands used in the *shell scripts* (all preceded b
 ## EXECUTION
 The user needs to download this repository to their PC. 
 From the Bash software, the user must move to the corresponding folder and run the python file `gui.py`. The window will appear, from which the user can choose the desired pc number and confirm it. Then all the scripts are created and/or updated with the relative command lines.
+Finally, the user can decide whether to edit the files, implementing routing if necessary, or run the `vagrant up` command to activate all Virtual Machines.  
