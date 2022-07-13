@@ -15,18 +15,9 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--nicpromisc4", "allow-all"]
     vb.customize ["modifyvm", :id, "--nicpromisc5", "allow-all"]
     vb.cpus = 1
-  end
-   config.vm.define "router" do |switch|
-     switch.vm.box = "ubuntu/bionic64"
-     switch.vm.hostname = "router"
-     switch.vm.network "private_network", virtualbox__intnet: true, auto_config: false
-     switch.vm.provision "shell", path: "router.sh"
-     switch.vm.provider "virtualbox" do |v|
-       v.name = "router"
-     end
-   end 
+  end 
 # The following line is inserted by the gui.py file
-
+  
     config.vm.define "pc#{i}" do |pc|
       pc.vm.box = "ubuntu/bionic64"
       pc.vm.hostname = "pc#{i}"
@@ -37,5 +28,13 @@ Vagrant.configure("2") do |config|
       end
     end
   end
-
+   config.vm.define "router" do |router|
+     router.vm.box = "ubuntu/bionic64"
+     router.vm.hostname = "router"
+     router.vm.network "private_network", virtualbox__intnet: true, auto_config: false
+     router.vm.provision "shell", path: "router.sh"
+     router.vm.provider "virtualbox" do |v|
+       v.name = "router"
+     end
+   end
 end

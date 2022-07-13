@@ -1,3 +1,5 @@
+#! /usr/bin/env python3
+
 import tkinter as tk
 import tkinter.font as font
 
@@ -23,15 +25,15 @@ def start():
     num = 8
 
     for n in range(1, PcN+1):
-        file_n = open("pc%d.sh" % n, 'w')
-        file_n.write(contenuto)
-        file_n.write("sudo ip addr add 192.168.0.%d/28 dev enp0s8 \n" % n)
-        file_n.write("sudo ip link set dev enp0s8 up \n")
-        file_n.close()
+        file = open("pc%d.sh" % n, 'w')
+        file.write(contenuto)
+        file.write("sudo ip addr add 192.168.0.%d/28 dev enp0s%d \n" % (n, num))
+        file.write("sudo ip link set dev enp0s%d up \n\n" % num)
+        file.close()
         
         file = open("router.sh", 'a')
-        file.write("sudo ip addr add 192.168.1.%d/28 dev enp0s8 \n" % n)
-        file.write("sudo ip link set dev enp0s%d up \n\n" % num)  
+        file.write("sudo ip addr add 192.168.1.%d/28 dev enp0s%d \n" % (n, num))  
+        file.write("sudo ip link set dev enp0s%d up \n\n" % num)
         file.close()
         num += 1
         
@@ -40,7 +42,7 @@ def start():
     contents = f.readlines()
     f.close()
     
-    contents.insert(28, "  (1..%d).each do |i|" % PcN) 
+    contents.insert(19, "  (1..%d).each do |i|" % PcN) 
 
     f = open("Vagrantfile", "w")
     contents = "".join(contents)
@@ -48,6 +50,7 @@ def start():
     f.close()
 
     print("Now everything is ready!")
+    print("You can modify the files or start the network with 'vagrant up'")
 
 
 win = tk.Tk()
@@ -72,7 +75,7 @@ btn_increase = tk.Button(master=win, text="+", bg="lightgreen", command=increase
 btn_increase.grid(row=0, column=2, sticky="nsew", padx=4, pady=4)
 btn_increase['font'] = font.Font(size=20)
 
-btn_confirm = tk.Button(master=win, text="Okay", command=start)
+btn_confirm = tk.Button(master=win, text="Okay", bg="yellow", command=start)
 btn_confirm.grid(row=1, column=3, padx=4, pady=4)
 btn_confirm['font'] = font.Font(size=12)
 
